@@ -20,11 +20,10 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClientWrapperComponent>
-          <Toaster />
-          <RegisterModalComponent />
-          <Navbar />
-        </ClientWrapperComponent>
+        <Toaster />
+        <RegisterModalComponent />
+        <Navbar />
+        {/* <ClientWrapperComponent></ClientWrapperComponent> */}
         {children}
       </body>
     </html>

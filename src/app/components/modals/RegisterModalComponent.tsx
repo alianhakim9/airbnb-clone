@@ -36,6 +36,10 @@ export default function RegisterModalComponent() {
       .post("/api/register", data)
       .then((response) => {
         console.log(response.data);
+        toast.success("register success", {
+          position: "top-center",
+        });
+        registerModal.onClose();
       })
       .catch((error: AxiosError) => {
         toast.error(error.message, {

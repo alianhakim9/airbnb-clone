@@ -6,18 +6,18 @@ interface ClientWrapperProps {
   children: React.ReactNode;
 }
 
-const ClientWrapperComponent: React.FC<ClientWrapperProps> = ({ children }) => {
+export default function ClientWrapperComponent({
+  children,
+}: ClientWrapperProps) {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
-  }, []);
+  });
 
   if (!hasMounted) {
     return null;
   }
 
   return <>{children}</>;
-};
-
-export default ClientWrapperComponent;
+}

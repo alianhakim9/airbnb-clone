@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  mongo:
+    build: ./mongodb_rs
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=db
+      - MONGO_REPLICA_HOST=localhost
+      - MONGO_REPLICA_PORT=27017   
+
+volumes:
+  data: {}
+
+networks:
+  defaults:
+    name: mongodb_network
