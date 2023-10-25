@@ -5,6 +5,7 @@ import Logo from "@/app/components/navbar/LogoComponent";
 import Search from "@/app/components/navbar/SearchComponent";
 import UserMenu from "@/app/components/navbar/UserMenuComponent";
 import { SafeUser } from "@/app/types";
+import CategoriesComponent from "./CategoriesComponent";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -22,6 +23,7 @@ export default function NavbarComponent({ currentUser }: NavbarProps) {
           </div>
         </Container>
       </div>
+      <CategoriesComponent />
     </div>
   );
 }
