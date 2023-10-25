@@ -2,11 +2,15 @@
 
 import Image from "next/image";
 
-export default function AvatarComponent() {
+interface AvatarProps {
+  src?: string | null;
+}
+
+export default function AvatarComponent({ src }: AvatarProps) {
   return (
     <div>
       <Image
-        src="/images/placeholder.jpeg"
+        src={src || "/images/placeholder.jpeg"}
         alt="Avatar"
         width={30}
         height={30}

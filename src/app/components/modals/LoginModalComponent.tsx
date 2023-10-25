@@ -89,14 +89,14 @@ export default function LoginModalComponent() {
         outline
         label="Continue with Google"
         icon={<FcGoogle size={24} />}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
         disabled={isLoading}
       />
       <Button
         outline
         label="Continue with Github"
         icon={<AiFillGithub size={24} />}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
         disabled={isLoading}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">

@@ -4,10 +4,10 @@ import Container from "@/app/components/ContainerComponent";
 import Logo from "@/app/components/navbar/LogoComponent";
 import Search from "@/app/components/navbar/SearchComponent";
 import UserMenu from "@/app/components/navbar/UserMenuComponent";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 export default function NavbarComponent({ currentUser }: NavbarProps) {
