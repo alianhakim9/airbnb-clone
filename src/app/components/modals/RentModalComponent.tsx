@@ -7,9 +7,8 @@ import HeadingComponent from "@/app/components/HeadingComponent";
 import { categories } from "@/app/components/navbar/CategoriesComponent";
 import CategoryInputComponent from "@/app/components/input/CategoryInputComponent";
 import { FieldValues, useForm } from "react-hook-form";
-import CountrySelectComponent, {
-  CountrySelectValue,
-} from "../input/CountrySelectComponent";
+import CountrySelectComponent from "@/app/components/input/CountrySelectComponent";
+import dynamic from "next/dynamic";
 
 enum STEPS {
   CATEGORY = 0,
@@ -47,6 +46,15 @@ export default function RentModalComponent() {
   });
 
   const category = watch("category");
+  const location = watch("location");
+
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../MapComponent"), {
+        ssr: false,
+      }),
+    [location]
+  );
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -107,7 +115,11 @@ export default function RentModalComponent() {
           title="Where is your place located"
           subtitle="Help guest find you!"
         />
-        <CountrySelectComponent onChange={() => {}} />
+        <CountrySelectComponent
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
+        <Map center={location?.latlng} />
       </div>
     );
   }
