@@ -7,6 +7,9 @@ import HeadingComponent from "@/app/components/HeadingComponent";
 import { categories } from "@/app/components/navbar/CategoriesComponent";
 import CategoryInputComponent from "@/app/components/input/CategoryInputComponent";
 import { FieldValues, useForm } from "react-hook-form";
+import CountrySelectComponent, {
+  CountrySelectValue,
+} from "../input/CountrySelectComponent";
 
 enum STEPS {
   CATEGORY = 0,
@@ -97,12 +100,24 @@ export default function RentModalComponent() {
     </div>
   );
 
+  if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <HeadingComponent
+          title="Where is your place located"
+          subtitle="Help guest find you!"
+        />
+        <CountrySelectComponent onChange={() => {}} />
+      </div>
+    );
+  }
+
   return (
     <ModalComponent
       title="Airbnb your home"
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={rentModal.onClose}
+      onSubmit={onNext}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}

@@ -14,7 +14,6 @@ interface CategoryBoxProps {
 
 export default function CategoryBoxComponent({
   label,
-  description,
   icon: Icon,
   selected,
 }: CategoryBoxProps) {
