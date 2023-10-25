@@ -2,7 +2,7 @@
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import axios, { AxiosError } from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -55,6 +55,11 @@ export default function LoginModalComponent() {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <HeadingComponent
@@ -104,12 +109,9 @@ export default function LoginModalComponent() {
           <div>Doesn't have an account ?</div>
           <div
             className="text-neutral-800 cursor-pointer hover:underline font-bold"
-            onClick={() => {
-              loginModal.onClose();
-              registerModal.onOpen();
-            }}
+            onClick={toggle}
           >
-            Sign Up
+            Create an account
           </div>
         </div>
       </div>

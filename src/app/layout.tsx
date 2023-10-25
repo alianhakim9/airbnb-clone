@@ -7,6 +7,7 @@ import RegisterModalComponent from "@/app/components/modals/RegisterModalCompone
 import { Toaster } from "react-hot-toast";
 import LoginModalComponent from "./components/modals/LoginModalComponent";
 import getCurrentUser from "./actions/getCurrentUser";
+import RentModalComponent from "./components/modals/RentModalComponent";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }: LayoutProps) {
         <Toaster />
         <RegisterModalComponent />
         <LoginModalComponent />
+        <RentModalComponent />
         <Navbar currentUser={currentUser} />
         {/* <ClientWrapperComponent></ClientWrapperComponent> */}
         {children}
