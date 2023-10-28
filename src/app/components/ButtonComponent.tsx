@@ -2,8 +2,8 @@
 
 interface ButtonProps {
   label: string;
-  disabled: boolean;
-  outline: boolean;
+  disabled?: boolean;
+  outline?: boolean;
   small?: boolean;
   onClick: () => void;
   icon?: React.ReactNode;
