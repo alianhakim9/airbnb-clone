@@ -26,10 +26,12 @@ export default function UserMenuComponent({ currentUser }: UserMenuProps) {
   }, []);
 
   const onRent = useCallback(() => {
+    console.log(currentUser);
     if (!currentUser) {
       loginModal.onOpen();
+    } else {
+      rentModal.onOpen();
     }
-    rentModal.onOpen();
     // TODO : OPEN RENT MODAL
   }, [currentUser, loginModal, rentModal]);
 

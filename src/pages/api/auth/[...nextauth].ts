@@ -13,7 +13,7 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
       httpOptions: {
-        timeout: 5000,
+        timeout: 10000,
       },
     }),
     GoogleProvider({
