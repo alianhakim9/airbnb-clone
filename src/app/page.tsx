@@ -3,7 +3,6 @@ import EmptyStateComponent from "@/app/components/EmptyStateComponent";
 import getListings from "@/app/actions/getListings";
 import ListingCardComponent from "@/app/components/listings/ListingCardComponent";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { Listing } from "@prisma/client";
 import { SafeListing } from "./types";
 
 export default async function Home() {
