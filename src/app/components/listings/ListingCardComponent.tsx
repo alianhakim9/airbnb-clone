@@ -8,7 +8,7 @@ import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
 import HeartButtonComponent from "@/app/components/HeartButtonComponent";
-import ButtonComponent from "../ButtonComponent";
+import ButtonComponent from "@/app/components/ButtonComponent";
 
 interface ListingCardProps {
   data: Listing;
@@ -17,7 +17,7 @@ interface ListingCardProps {
   disabled?: boolean;
   actionLabel?: string;
   actionid?: string;
-  currentUser?: SafeUser;
+  currentUser?: SafeUser | null;
 }
 
 export default function ListingCardComponent({
@@ -76,6 +76,7 @@ export default function ListingCardComponent({
             alt="listing"
             src={data.imageSrc}
             className="object-cover h-full w-full group-hover:scale-110 transition"
+            sizes="100"
           />
           <div className="absolute top-3 right-3">
             <HeartButtonComponent
